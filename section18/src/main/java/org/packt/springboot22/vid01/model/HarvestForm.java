@@ -1,7 +1,5 @@
 package org.packt.springboot22.vid01.model;
 
-import java.time.LocalDate;
-
 import lombok.Data;
 
 @Data
