@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script> 
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/boostrap.js}"></script> 
+    <link rel="stylesheet" type="text/css" th:href="@{/css/farm.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+</head>
+<body>
+    <div class="card col-md-6 mt-5 mb-5">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
+    <div class="w-100 carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-sm-3">
+              <img th:src="@{/img/farmup.jpg}" alt="" class="rounded-circle img-fluid"/>
+            </div>
+            <div class="col-sm-9">
+              <h3 th:text="${projectName}">Project Name</h3>
+              <small th:text="${banner}">Banner</small>
+              <small class="smallest mute"> --<span th:text="${webmaster}"/></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-sm-3">
+              <img th:src="@{/img/farmup.jpg}"  alt="" class="rounded-circle img-fluid">
+            </div>
+            <div class="col-sm-9">
+              <h3 th:text="${projectName}">Project Name</h3>
+              <small th:text="${banner}">Banner</small>
+              <small class="smallest mute"> --<span th:text="${webmaster}"/></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-sm-3">
+              <img th:src="@{/img/farmup.jpg}" alt="" class="rounded-circle img-fluid">
+            </div>
+            <div class="col-sm-9">
+              <h3 th:text="${projectName}">Project Name</h3>
+              <small th:text="${banner}">Banner</small>
+              <small class="smallest mute"> --<span th:text="${webmaster}"/></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="float-right navi">
+   
+    <a class="" href="/farm/login/auth" role="button" data-slide="next">
+      <span class="carousel-control-next-icon ico" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
