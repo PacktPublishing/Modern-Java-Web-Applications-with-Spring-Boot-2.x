@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+	<link rel="stylesheet" type="text/css" th:href="@{/css/farm_login.css}">
+	<script th:src="@{/js/login_farm.js}"></script>
+</head>
+<body>
+<div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-4">
+          <h3 style="color : #006400">Welcome to FarmUp</h3>
+                
+          <div class="panel panel-default box-shadow">
+            <div class="panel-heading">
+              <span class="text-primary" style="color : #006400">User Authentication</span>
+              <span class="text-muted pull-right today" title="Today"></span>              
+            </div><!--.panel-heading-->
+
+            <div class="panel-body">
+              <form action="/farm/login/auth" method="POST">
+
+                <div class="form-group">
+                  <label for="email" style="color : #006400">Email</label>
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+                    <input autofocus required type="email" name="username" class="form-control" placeholder="Your email" tabindex="1">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="password" style="color : #006400">Password</label>
+                  <a href="#forget-password" class="btn btn-xs btn-link" tabindex="4">Forget password?</a>
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                    <input required type="password" name="password" class="form-control" placeholder="Your password" tabindex="2">
+                  </div>
+                </div>
+                
+                <div class="checkbox">
+                    <label style="color : #006400"><input type="checkbox"> Remember me</label>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" tabindex="3">Authenticate</button>
+                <p class="text-center text-muted h4" style="color : #006400">
+                  or
+                </p>
+                <a href="/farm/signup" class="btn btn-block btn-success" tabindex="5">Create account</a>
+              </form>
+            </div>
+          </div><!--.panel-->
+        </div><!--.cols-->
+      </div><!--.row-->
+    </div><!--.container-->
+    </body>
+</html>
