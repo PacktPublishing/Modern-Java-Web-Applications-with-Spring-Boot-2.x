@@ -1,0 +1,58 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.M5'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'org.packt.springboot22'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '12'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+	compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0.1'
+	compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.4.0-b180830.0438'
+	
+	compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
+
+    compile group: 'javax.json.bind', name: 'javax.json.bind-api', version: '1.0'
+	compile (group: 'org.eclipse', name: 'yasson', version: '1.0') {
+	     exclude group: 'javax.json'
+	     exclude group: 'javax.json.bind'    
+	}
+	compile group: 'org.glassfish.jersey.media', name: 'jersey-media-json-binding', version: '2.29'
+	
+	compile group: 'org.glassfish.jersey.media', name: 'jersey-media-sse', version: '2.29'
+  
+	implementation 'org.springframework.boot:spring-boot-starter-jersey'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+
+configurations {
+	
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	
+	all*.exclude group: 'com.fasterxml.jackson.core'
+	all*.exclude group: 'com.fasterxml.jackson.datatype'
+	all*.exclude group: 'org.glassfish.jersey.media', module: 'jersey-media-json-jackson'
+	all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-json'
+}
