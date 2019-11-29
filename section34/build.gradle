@@ -1,0 +1,80 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.M6'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'war'
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"	 
+}
+
+group = 'org.packt.springboot22'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '12'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+		
+	}
+	querydsl.extendsFrom compileClasspath
+	providedRuntime
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+
+	implementation group: 'com.querydsl', name: 'querydsl-apt', version: '4.2.1'
+	implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '4.2.1'
+
+	annotationProcessor 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final'
+	annotationProcessor 'com.querydsl:querydsl-apt:4.2.1'
+	annotationProcessor 'javax.annotation:javax.annotation-api:1.3.2'
+	
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+def querydslSrcDir = 'src/generated/java'
+
+querydsl {
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
+    querydslSourcesDir = querydslSrcDir
+}
+
+sourceSets {
+    main {
+        java {
+           srcDir querydslSrcDir
+        }   
+    }
+}
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+compileJava {
+    options.annotationProcessorPath = configurations.annotationProcessor
+}
+
+clean {
+    delete querydslSrcDir
+}
+
+
