@@ -1,0 +1,68 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'org.packt.springboot22'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '12'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+ext {
+	set('springCloudVersion', "Hoxton.M3")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+dependencies {
+	compile group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: '1.3.0'
+	
+
+ 	
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	
+	
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+configurations {
+    //removes logback
+    all*.exclude group: 'ch.qos.logback'
+
+    //removes the multiple duplicate errors
+    all*.exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+}
+test {
+	useJUnitPlatform()
+}
