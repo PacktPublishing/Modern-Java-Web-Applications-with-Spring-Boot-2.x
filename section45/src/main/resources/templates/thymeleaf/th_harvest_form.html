@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <legend style="text-align : center; color : #6B8E23">Add Harvest</legend>
+  
+    <form method="POST" action="/farm/harvest/add" th:object="${harvestForm}" class="form-horizontal">
+    <fieldset>
+		<!-- Text input -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="documentid">ID</label>  
+		  <div class="col-md-4">
+		  <input type="text" th:field="*{id}"  name="id" class="form-control" id="newsletter-email" placeholder="ID">
+		  </div>
+		</div>
+		
+		<!-- Text input -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="status">Name</label>
+		  <div class="col-md-4">
+		    
+		   <input type="text" th:field="*{name}" name="name" class="form-control" id="name" placeholder="Name">
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="creationdate">Approved Date</label>  
+		  <div class="col-md-4">
+ 
+		  <input type="text" th:field="*{approvedDate}" name="approvedDate" class="form-control" id="approvedDate" placeholder="DD/MM/YYYY">
+		  </div>
+		</div>
+		
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="qty">Quantity</label>  
+		  <div class="col-md-4">
+		    <input type="number" th:field="*{qty}" name="qty" class="form-control" id="qty" placeholder="Quantity">
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="qty">Price</label>  
+		  <div class="col-md-4">
+		   <input type="number" th:field="*{price}"  name="price" class="form-control" id="price" placeholder="Price"/>
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="qty">Owner</label>  
+		  <div class="col-md-4">
+		  
+		   <input type="text" th:field="*{owner}"  name="owner" class="form-control" id="owner" placeholder="Owner"/>
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="qty">Location</label>  
+		  <div class="col-md-4">
+		    
+		  	<input type="text" th:field="*{location}"  name="location" class="form-control" id="location" placeholder="Location"/>
+		  </div>
+		</div>
+		
+		<!-- Textarea -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="internalreferencenumber">Description</label>
+		  <div class="col-md-4">  
+	
+		    <textarea cols="10" rows="5" th:field="*{description}"  name="description" class="form-control" id="description" placeholder="Description"></textarea>
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="qty">Status</label>  
+		  <div class="col-md-4">
+		  	<select name="status" th:field="*{status}" class="form-control">
+    		   <option th:value="new">New Stock</option>
+		   	   <option th:value="good">Good Stock</option>
+		   	   <option th:value="old">Old but Good Stock</option>
+		   	   <option th:value="sale">For Sale</option>
+			</select>   	
+		  </div>
+		</div>
+		
+		<!-- Multiple Radios -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="type">Type</label>
+		  <div class="col-md-4">
+		      <input type="radio" th:name="type" th:value="Fruits" class="form-control" id="location">Fruits
+		      <input type="radio" th:name="type" th:value="Vegetable" class="form-control" id="location">Vegetable
+		  </div>
+		</div>
+		
+		<!-- Button (Double) -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="approvereject"></label>
+		  <div class="col-md-8">
+		    <input type="submit" name="approve" class="btn btn-success" id="approve" value="Approve" />
+		    <button name="reject" class="btn btn-danger" id="cancel">Reject</button>
+		  </div>
+		</div>
+	</fieldset>
+  </div>
+</form>
+</body>
+</html>
