@@ -1,0 +1,50 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'org.packt.springboot22'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '12'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+	compile group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '0.8.0.RC2'
+	
+	compile group: 'io.r2dbc', name: 'r2dbc-pool', version: '0.8.0.RC2'
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.1.RELEASE'
+	
+	implementation 'org.springframework.boot.experimental:spring-boot-starter-r2dbc'
+	
+	implementation 'org.springframework.boot.experimental:spring-boot-starter-data-r2dbc'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	
+    compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	implementation 'org.springframework.boot.experimental:spring-boot-test-autoconfigure-r2dbc'
+	testImplementation 'io.projectreactor:reactor-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.boot.experimental:spring-boot-bom-r2dbc:0.1.0.M2'
+	}
+}
+test {
+	useJUnitPlatform()
+}
