@@ -1,0 +1,12 @@
+applications:
+- name: section73-auth
+  buildpacks: 
+  - https://github.com/cloudfoundry/java-buildpack.git#v4.25
+  path: build/libs/section73-auth-0.0.1-SNAPSHOT.jar
+  
+  memory: 768m
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 12.+}}'
+    SPRING_DATASOURCE_URL: jdbc:postgresql://postgres.apps.internal:5432/fhms
+    SPRING_DATASOURCE_USERNAME: postgres
+    SPRING_DATASOURCE_PASSWORD: admin
