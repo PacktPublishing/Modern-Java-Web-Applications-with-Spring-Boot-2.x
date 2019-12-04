@@ -1,0 +1,33 @@
+
+  <div class="col-lg-8">
+        <div class="panel panel-default">
+        <div class="panel-heading"><h3 >{{ header }}</h3></div>
+        <div class="panel-body">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Mobile</th>
+              <th>Username</th>
+              <th>Password</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor ="let user of userList">
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.address}}</td>
+              <td>{{user.mobile}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.password}}</td>
+           </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+  </div>
+

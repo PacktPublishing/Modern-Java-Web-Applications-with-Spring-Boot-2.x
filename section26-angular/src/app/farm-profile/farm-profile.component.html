@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="col-lg-6">
+      <div class="panel panel-default">
+      <div class="panel-heading"><h3> {{ header}}</h3></div>
+      <div class="panel-body"></div>
+    <form name="myForm" #myForm="ngForm" onSubmit={this.handleSubmit} class="form-horizontal">
+        <fieldset>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Full Name</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.name" name="name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Email</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.email" name="email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="address">Address</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.address" name="adress" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="mobile">Mobile</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.mobile" name="mobile" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="username">Username</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.username" name="username" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="password">Password</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.password" name="password" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="approved">Approved?</label>
+            <div class="col-md-4">
+              <input type="text" [(ngModel)]="formData.approved" name="approved" />
+            </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-8">
+                <input type="submit" value="Submit" (click)="onsubmit()"/>
+              </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    </div>
+      </div>
