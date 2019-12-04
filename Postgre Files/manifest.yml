@@ -1,0 +1,14 @@
+applications:
+- name: SpringBoot22Postgres
+  health-check-type: process
+  memory: 394m
+  docker:
+    image: postgres:latest
+  routes:
+  - route: postgres.apps.internal
+  env:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: admin
+    POSTGRES_DB: fhms
+    PGDATA: /var/lib/postgresql/data
+    
