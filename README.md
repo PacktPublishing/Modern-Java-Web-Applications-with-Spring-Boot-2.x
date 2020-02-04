@@ -29,7 +29,6 @@ This course is for developers who have no prior knowledge of Spring Boot but pos
 ### Technical Requirements
 #### Minimum Hardware Requirements<br/>
 For successful completion of this course, students will require the computer systems with at least the following:<br/>
-
 OS: Windows 10 Home 64-bit<br/>
 Processor: Intel I5.<br/>
 Memory: 4GB RAM.<br/>
@@ -37,14 +36,12 @@ Storage: 500 GB.<br/>
 
 #### Recommended Hardware Requirements<br/>
 For an optimal experience with hands-on labs and other practical activities, we recommend the following configuration:<br/>
-
-OS: Windows 10 Professional 64-bit<br/><br/>
+OS: Windows 10 Professional 64-bit<br/>
 Processor: quad core.<br/>
 Memory: 8GB RAM or more.<br/>
 Storage: 1TB HDD.<br/>
 
 #### Software Requirements<br/>
-
 Operating system: Windows 10 Home or Professional 64-bit<br/>
 Browser: Chrome or Firefox (updated)<br/>
 
